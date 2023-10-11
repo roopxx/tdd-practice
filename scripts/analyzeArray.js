@@ -21,5 +21,3 @@ function analyzeArray(array) {
 }
 
 module.exports = analyzeArray;
-
-console.log(analyzeArray([225, 3387, 4434, 55724, 64676]));
