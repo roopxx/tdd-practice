@@ -11,3 +11,13 @@ test("cryptography working with spaces", () => {
 test("if no string is provided ", () => {
   expect(caesarCipher("")).toStrictEqual("Empty String!!!");
 });
+
+test("end of alphabets", () => {
+  expect(caesarCipher("Azax and Zaxa")).toStrictEqual("Baby boe Abyb");
+});
+
+test("special characters", () => {
+  expect(caesarCipher("You are not !@#$%$%^&*, HAHAHA!!")).toStrictEqual(
+    "Zpv bsf opu !@#$%$%^&*, IBIBIB!!"
+  );
+});

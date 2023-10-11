@@ -4,18 +4,30 @@ function caesarCipher(string) {
   }
 
   let stringArray = string.split("");
-  let encryptedArray = [];
+
+  let outputString = "";
+
   stringArray.forEach((element) => {
-    let code;
-    if (element == " ") {
-      code = element.charCodeAt();
-    } else {
-      code = element.charCodeAt() + 1;
+    let char = element;
+
+    if (element.match(/[a-z]/i)) {
+      var code = element.charCodeAt();
+
+      // Uppercase letters
+      if (code >= 65 && code <= 90) {
+        char = String.fromCharCode(((code - 65 + 1) % 26) + 65);
+      }
+
+      // Lowercase letters
+      else if (code >= 97 && code <= 122) {
+        char = String.fromCharCode(((code - 97 + 1) % 26) + 97);
+      }
     }
-    encryptedArray.push(String.fromCharCode(code));
+
+    outputString += char;
   });
 
-  return encryptedArray.join("");
+  return outputString;
 }
 
 module.exports = caesarCipher;
